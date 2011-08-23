@@ -1,7 +1,7 @@
 # Create a user
 
-user = User.create! :name => 'Test User', :initials => 'TU',
-                    :email => 'test@example.com', :password => 'testpass'
+user = User.create! :name => 'Testy', :initials => 'T',
+                    :email => 'example@example.com', :password => 'password'
 user.confirm!
 
 project = Project.create! :name => 'Test Project', :users => [user]
