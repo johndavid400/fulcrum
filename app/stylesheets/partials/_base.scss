@@ -34,6 +34,9 @@ ul#primary-nav li {
 ul#primary-nav li a {
   color: white;
   text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 ul#primary-nav li.root {
   float: left;
@@ -83,6 +86,15 @@ ul#primary-nav li.secondary ul li {
   position: relative;
   margin: 0;
   padding: 10px 1em;
+  a {
+    text-decoration:none;
+    color: #5E6469;
+    padding: 0 4px 0 4px;
+    &:hover {
+      text-decoration:underline;
+      color:#000;
+    }
+  }
 }
 
 #title_bar h1 {
@@ -92,9 +104,53 @@ ul#primary-nav li.secondary ul li {
 
 #main {
   margin: 1em;
+  h2 {
+    color: #5D7A82;
+    font-size:1.7em;
+    margin: 7px 0 15px 0;
+  }
+  form {
+    legend {
+      font-size:1.2em;
+      margin: 0 0 7px 0;
+    }
+  }
+  table.stories {
+    border:none;
+    @include basic_drop;
+    
+    thead {
+      tr {
+        th {
+          padding: 6px 5px 5px 11px;
+          font-size:1.1em;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          padding: 3px;
+        }
+      }
+    }
+  }
   table {
+    @include basic_drop;
     border:1px solid #ccc;
     background:#eee;
+    margin: 0 0 10px 0;
+    thead {
+      tr {
+        th {
+          border-bottom:1px solid #ccc;
+          padding: 5px 10px;
+          @include header_bg;
+          color:#fff;
+          font-weight:bold;
+        }
+      }
+    }
     tbody {
       tr {
         th {
@@ -198,6 +254,8 @@ span.estimate {
   font-weight: bold;
   font-style: italic;
 }
+
+
 
 
 span.estimate_2 {

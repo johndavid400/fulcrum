@@ -39,7 +39,11 @@ $background: #000;
   background: linear-gradient(top, #75959d 0%,#698891 76%,#5d7a82 100%); /* W3C */
 }
 
-
+@mixin basic_drop {
+  -webkit-box-shadow: 0px 3px 7px 1px #dddddd;
+  -moz-box-shadow: 0px 3px 7px 1px #dddddd;
+  box-shadow: 0px 3px 7px 1px #dddddd;
+}
 
 @mixin table_border {
   background: #000;
