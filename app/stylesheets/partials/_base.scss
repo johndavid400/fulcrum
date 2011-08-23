@@ -1,11 +1,9 @@
 html {
-  @include main_bg;
   height:100%;
-
 }
 
-
 body {
+  @include main_bg;
   margin: 0;
   padding: 0;
   height:100%;
@@ -16,15 +14,7 @@ a img {
 }
 
 #header {
-  background: #6a7176;
-  background: -webkit-gradient(linear, left top, left bottom, from(#6a7176), to(#4d5256));
-  background: -moz-linear-gradient(-90deg, #6a7176, #4d5256);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#6a7176, endColorstr=#4d5256);
-  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#6a7176, endColorstr=#4d5256);
-  border-bottom: 1px solid #44484b;
-  box-shadow: 0 1px 2px #aaaaaa;
-  -moz-box-shadow: 0 1px 2px #aaaaaa;
-  -webkit-box-shadow: 0 1px 2px #aaaaaa;
+  @include header_bg;
   text-shadow: black 0 1px 0;
   position: relative;
   z-index: 900;
@@ -32,13 +22,10 @@ a img {
 
 ul#primary-nav {
   text-align: right;
-  background-image: url('/images/logo.png');
-  background-repeat: no-repeat;
-  background-position: 13px 6px;
   margin: 0;
-  padding: 1em 1em 1em 40px;
   color: white;
   font-weight: bold;
+  height:35px;
 }
 ul#primary-nav li {
   padding: 0 0.5em;
@@ -51,11 +38,12 @@ ul#primary-nav li a {
 ul#primary-nav li.root {
   float: left;
   font-size: large;
+  margin: 6px 0 0 10px;
 }
 ul#primary-nav li.secondary {
   position: relative;
   background: #333 url('/images/collapse.png') no-repeat right;
-  padding: 0.4em 18px 0.4em 0.4em;
+  padding: 0.4em 20px 0.4em 0.4em;
   border-radius: 5px;
   -moz-border-radius: 5px;
 }
@@ -80,11 +68,7 @@ ul#primary-nav li.secondary ul li {
 }
 
 #title_bar {
-  background: #efefef;
-  background: -webkit-gradient(linear, left top, left bottom, from(#efefef), to(#dfe1e2));
-  background: -moz-linear-gradient(-90deg, #efefef, #dfe1e2);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#efefef, endColorstr=#dfe1e2);
-  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#efefef, endColorstr=#dfe1e2);
+ @include title_bar_bg;
   box-shadow: 0 1px 2px #aaaaaa;
   -moz-box-shadow: 0 1px 2px #aaaaaa;
   -webkit-box-shadow: 0 1px 2px #aaaaaa;
@@ -108,6 +92,29 @@ ul#primary-nav li.secondary ul li {
 
 #main {
   margin: 1em;
+  table {
+    border:1px solid #ccc;
+    background:#eee;
+    tbody {
+      tr {
+        th {
+          border-bottom:1px solid #ccc;
+          padding: 5px 10px;
+          @include header_bg;
+          color:#fff;
+          font-weight:bold;
+        }
+        td {
+          border-bottom:1px solid #ccc;
+          border-left:1px solid #ccc;
+          border-right:1px solid #ccc;
+          padding: 5px 10px;
+          
+          
+        }
+      }
+    }
+  }
 }
 
 html.stories, html.stories body, html.stories div#main {
