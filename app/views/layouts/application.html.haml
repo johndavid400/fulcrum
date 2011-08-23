@@ -1,0 +1,38 @@
+!!!
+%html
+  %head
+    %title Fulcrum
+    = csrf_meta_tag
+    = stylesheet_link_tag :all
+    = stylesheet_link_tag 'screen.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'print.css', :media => 'print'
+    /[if lt IE 8]
+      = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
+    = javascript_include_tag 'underscore.js', 'jquery-1.4.2.min',          
+      'backbone.js', 'jquery-ui-1.8.11.custom.min', 'jquery.tmpl.min.js',  
+      'jquery.gritter.min.js', 'jquery.scrollTo-min.js', 'backbone.rails', 
+      'rails.js', 'models/story', 'models/project', 'models/user',         
+      'collections/story_collection', 'collections/user_collection',      
+      'views/form_view', 'views/story_view', 'views/app_view',             
+      'fulcrum'                                                         
+  %body
+    #header
+      %ul#primary-nav
+        %li.root= link_to "Fulcrum", root_path
+        - if current_user
+          %li.secondary
+            Projects
+            %ul
+              - current_user.projects.each do |project|
+                %li= link_to project, project
+          %li= link_to current_user.email, edit_user_registration_path
+          %li= link_to 'Log out', destroy_user_session_path
+        - else
+          %li= link_to 'Log in', new_user_session_path
+          %li= link_to 'Sign up', new_user_registration_path
+    #title_bar
+      = yield :title_bar
+    #main
+      %p.notice= notice
+      %p.alert= alert
+      = yield
