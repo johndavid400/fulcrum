@@ -180,6 +180,7 @@ var StoryView = FormView.extend({
   },
 
   saveEdit: function() {
+    console.log(this.changed_attributes);
     this.model.set(this.changed_attributes);
     this.disableForm();
 
@@ -214,6 +215,7 @@ var StoryView = FormView.extend({
   },
 
   render: function() {
+
     if(this.model.get('editing') === true) {
       $(this.el).empty();
       div = this.make('div');
@@ -269,6 +271,20 @@ var StoryView = FormView.extend({
       $(div).append('<br/>');
       $(div).append(this.textArea("description"));
       $(this.el).append(div);
+
+      div = this.make('div');
+      frm = $("<form enctype='multipart/form-data' action='/file_attachments' method='post'>");
+      $(frm).append(this.label("file_attachment_attachment", "File Attachments"));
+      $(frm).append('<br/>');
+      $(frm).append($("<input type='file' name='file_attachment[attachment]'>"));
+      story_field = $("<input type='hidden' name='story_id'>");
+      story_field.val(this.model.get('id'));
+      $(frm).append(story_field);
+      sub_btn = $("<input type='submit' value='Add File'>");
+      $(frm).append(sub_btn);
+      $(div).append(frm);
+      $(this.el).append(div);
+
 
     } else {
       $(this.el).html($('#story_tmpl').tmpl(this.model.toJSON(), {story: this.model, view: this}));

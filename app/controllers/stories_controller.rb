@@ -5,7 +5,7 @@ class StoriesController < ApplicationController
   def index
     @project = current_user.projects.find(params[:project_id])
     @stories = @project.stories
-    render :json => @stories
+    render :json => ( @stories.to_json :methods => [:file_attachment_count] )
   end
 
   def show

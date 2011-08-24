@@ -6,7 +6,7 @@ class Story < ActiveRecord::Base
     "state", "position", "id", "events", "estimable", "estimated"
   ]
   JSON_METHODS = [
-    "events", "estimable", "estimated", "errors"
+    "events", "estimable", "estimated", "errors", "file_attachment_count"
   ]
 
   belongs_to :project
@@ -21,6 +21,7 @@ class Story < ActiveRecord::Base
   validates :owned_by_id, :belongs_to_project => true
 
   has_many :changesets
+  has_many :file_attachments
 
   # This attribute is used to store the user who is acting on a story, for
   # example delivering or modifying it.  Usually set by the controller.
@@ -127,8 +128,15 @@ class Story < ActiveRecord::Base
     end
   end
 
+  def file_attachment=(file)
+    file_attachments.build(:attachment => file)
+  end
+
+  def file_attachment_count
+    file_attachments.count
+  end
+
   private
-    
     def set_accepted_at
       if state_changed?
         if state == 'accepted' && accepted_at == nil
