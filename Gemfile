@@ -19,9 +19,6 @@ gem 'fastercsv', '1.5.3', :platforms => :ruby_18
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# To use debugger
-gem 'ruby-debug19'
-
 # Bundle the extra gems:
 # gem 'bj'
 # gem 'nokogiri'
@@ -36,6 +33,9 @@ gem 'ruby-debug19'
 # end
 
 group :development, :test do
+  # To use debugger
+  gem 'ruby-debug19'
+
   gem 'factory_girl_rails'
   gem 'jasmine'
 end
