@@ -3,3 +3,5 @@
 
 en:
   hello: "Hello world"
+  file_attachment_created_successfully: "File Attachment created successfully."
+  file_attachment_created_unsuccessfully: "There was a problem saving the image."
