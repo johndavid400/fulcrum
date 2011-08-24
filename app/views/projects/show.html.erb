@@ -17,14 +17,45 @@
     </form>
   </div>
   {{/if}}
-  <div class="story-icons">{{if $item.view.saveInProgress}}<img
-    src="/images/throbber.gif" alt="Saving ...">{{else}}<img
-    src="/images/expand.png" class="expand" alt="Expand">{{/if}}<img
-    src="/images/${story.story_type}.png" class="story_type" alt="${story.story_type}" title="${story.story_type}: ${story.id}">{{if story.estimated}}<span
-      class="estimate estimate_${story.estimate}">${story.estimate}</span>{{/if}}{{if $item.story.hasDetails()}}<img
-    src="/images/details.png" title="${story.description}"/>{{/if}}</div>
-  <div class="story-title">${story.title}{{if $item.story.owned_by()}}<abbr class="initials" title="${$item.story.owned_by().get("name")}">${$item.story.owned_by().get("initials")}</abbr>{{/if}}</div>
   
+  
+   
+  
+  <div class="story-icons">
+    
+    {{if $item.view.saveInProgress}}
+      <img src="/images/throbber.gif" alt="Saving ...">
+    {{else}}
+      <img src="/images/expand.png" class="expand" alt="Expand">
+    {{/if}}
+    
+    <img src="/images/${story.story_type}.png" class="story_type" alt="${story.story_type}" title="${story.story_type}: ${story.id}">
+    
+    {{if story.estimated}}
+      <span class="estimate estimate_${story.estimate}">${story.estimate}</span>
+    {{/if}}
+
+    {{if $item.story.hasFileAttachment()}}
+      <a href="/file_attachments?story_id=${story.id}"><img src="/images/paperclip.png" class="story_type" alt="" title=""></a>
+    {{/if}}
+
+    {{if $item.story.hasDetails()}}
+      <img src="/images/details.png" title="${story.description}"/>
+    {{/if}}
+
+  </div>
+  
+  <div class="story-title">
+    ${story.title}
+    {{if $item.story.owned_by()}}
+      <abbr class="initials" title="${$item.story.owned_by().get("name")}">${$item.story.owned_by().get("initials")}</abbr>
+    {{/if}}
+  </div>
+
+
+
+
+
 </script>
 <script id="story_form" type="text/x-jQuery-tmpl">
   <p>
