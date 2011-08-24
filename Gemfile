@@ -10,6 +10,7 @@ gem 'devise', '1.2.1'
 gem 'cancan', '1.6.1'
 gem 'transitions', '0.0.9', :require => ["transitions", "active_record/transitions"]
 gem 'paperclip'
+gem 'aws-s3'
 
 #style with haml and scss...please
 gem 'haml-rails'
