@@ -23,6 +23,6 @@ class FileAttachmentsController < ApplicationController
     else
       flash[:error] = t(:file_attachment_created_unsuccessfully)
     end
-    redirect_to @story.project
+    redirect_to '/'
   end
 end
