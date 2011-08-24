@@ -10,13 +10,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110706094137) do
+ActiveRecord::Schema.define(:version => 20110824183000) do
 
   create_table "changesets", :force => true do |t|
     t.integer  "story_id"
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "file_attachments", :force => true do |t|
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+    t.integer  "story_id"
   end
 
   create_table "projects", :force => true do |t|
