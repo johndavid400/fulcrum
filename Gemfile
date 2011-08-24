@@ -9,7 +9,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'devise', '1.2.1'
 gem 'cancan', '1.6.1'
 gem 'transitions', '0.0.9', :require => ["transitions", "active_record/transitions"]
-
+gem 'paperclip'
 gem 'fastercsv', '1.5.3', :platforms => :ruby_18
 # (using standard csv lib if ruby version is 1.9)
 
@@ -20,7 +20,7 @@ gem 'fastercsv', '1.5.3', :platforms => :ruby_18
 # gem 'capistrano'
 
 # To use debugger
-# gem 'ruby-debug'
+gem 'ruby-debug19'
 
 # Bundle the extra gems:
 # gem 'bj'
