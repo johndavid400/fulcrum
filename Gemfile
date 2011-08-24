@@ -25,7 +25,7 @@ gem 'fastercsv', '1.5.3', :platforms => :ruby_18
 # gem 'capistrano'
 
 # To use debugger
- gem 'ruby-debug19'
+#  gem 'ruby-debug19'
 
 # Bundle the extra gems:
 # gem 'bj'
