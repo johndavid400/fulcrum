@@ -2,6 +2,8 @@ Fulcrum::Application.routes.draw do
 
   get "story/new"
 
+  resources :file_attachments
+
   resources :projects do
     resources :users, :only => [:index, :create, :destroy]
     resources :changesets, :only => [:index]
