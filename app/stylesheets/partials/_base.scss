@@ -1,6 +1,12 @@
+html {
+  height:100%;
+}
+
 body {
+  @include main_bg;
   margin: 0;
   padding: 0;
+  height:100%;
 }
 
 a img {
@@ -8,15 +14,7 @@ a img {
 }
 
 #header {
-  background: #6a7176;
-  background: -webkit-gradient(linear, left top, left bottom, from(#6a7176), to(#4d5256));
-  background: -moz-linear-gradient(-90deg, #6a7176, #4d5256);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#6a7176, endColorstr=#4d5256);
-  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#6a7176, endColorstr=#4d5256);
-  border-bottom: 1px solid #44484b;
-  box-shadow: 0 1px 2px #aaaaaa;
-  -moz-box-shadow: 0 1px 2px #aaaaaa;
-  -webkit-box-shadow: 0 1px 2px #aaaaaa;
+  @include header_bg;
   text-shadow: black 0 1px 0;
   position: relative;
   z-index: 900;
@@ -24,13 +22,10 @@ a img {
 
 ul#primary-nav {
   text-align: right;
-  background-image: url('/images/logo.png');
-  background-repeat: no-repeat;
-  background-position: 13px 6px;
   margin: 0;
-  padding: 1em 1em 1em 40px;
   color: white;
   font-weight: bold;
+  height:35px;
 }
 ul#primary-nav li {
   padding: 0 0.5em;
@@ -39,15 +34,19 @@ ul#primary-nav li {
 ul#primary-nav li a {
   color: white;
   text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 ul#primary-nav li.root {
   float: left;
   font-size: large;
+  margin: 6px 0 0 10px;
 }
 ul#primary-nav li.secondary {
   position: relative;
   background: #333 url('/images/collapse.png') no-repeat right;
-  padding: 0.4em 18px 0.4em 0.4em;
+  padding: 0.4em 20px 0.4em 0.4em;
   border-radius: 5px;
   -moz-border-radius: 5px;
 }
@@ -72,11 +71,7 @@ ul#primary-nav li.secondary ul li {
 }
 
 #title_bar {
-  background: #efefef;
-  background: -webkit-gradient(linear, left top, left bottom, from(#efefef), to(#dfe1e2));
-  background: -moz-linear-gradient(-90deg, #efefef, #dfe1e2);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#efefef, endColorstr=#dfe1e2);
-  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#efefef, endColorstr=#dfe1e2);
+ @include title_bar_bg;
   box-shadow: 0 1px 2px #aaaaaa;
   -moz-box-shadow: 0 1px 2px #aaaaaa;
   -webkit-box-shadow: 0 1px 2px #aaaaaa;
@@ -91,6 +86,15 @@ ul#primary-nav li.secondary ul li {
   position: relative;
   margin: 0;
   padding: 10px 1em;
+  a {
+    text-decoration:none;
+    color: #5E6469;
+    padding: 0 4px 0 4px;
+    &:hover {
+      text-decoration:underline;
+      color:#000;
+    }
+  }
 }
 
 #title_bar h1 {
@@ -100,6 +104,73 @@ ul#primary-nav li.secondary ul li {
 
 #main {
   margin: 1em;
+  h2 {
+    color: #5D7A82;
+    font-size:1.7em;
+    margin: 7px 0 15px 0;
+  }
+  form {
+    legend {
+      font-size:1.2em;
+      margin: 0 0 7px 0;
+    }
+  }
+  table.stories {
+    border:none;
+    @include basic_drop;
+    
+    thead {
+      tr {
+        th {
+          padding: 6px 5px 5px 11px;
+          font-size:1.1em;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          padding: 3px;
+        }
+      }
+    }
+  }
+  table {
+    @include basic_drop;
+    border:1px solid #ccc;
+    background:#eee;
+    margin: 0 0 10px 0;
+    thead {
+      tr {
+        th {
+          border-bottom:1px solid #ccc;
+          padding: 5px 10px;
+          @include header_bg;
+          color:#fff;
+          font-weight:bold;
+        }
+      }
+    }
+    tbody {
+      tr {
+        th {
+          border-bottom:1px solid #ccc;
+          padding: 5px 10px;
+          @include header_bg;
+          color:#fff;
+          font-weight:bold;
+        }
+        td {
+          border-bottom:1px solid #ccc;
+          border-left:1px solid #ccc;
+          border-right:1px solid #ccc;
+          padding: 5px 10px;
+          
+          
+        }
+      }
+    }
+  }
 }
 
 html.stories, html.stories body, html.stories div#main {
@@ -184,20 +255,9 @@ span.estimate {
   font-style: italic;
 }
 
-span.estimate_1 {
-  background-image: -webkit-gradient(
-      linear,
-      left bottom,
-      left top,
-      color-stop(0.125, rgb(250,182,155)),
-      color-stop(0..25, rgb(255,255,255))
-  );
-  background-image: -moz-linear-gradient(
-      center bottom,
-      rgb(250,182,155) 12.5%,
-      rgb(255,255,255) 12.5%
-  );
-}
+
+
+
 span.estimate_2 {
   background-image: -webkit-gradient(
       linear,

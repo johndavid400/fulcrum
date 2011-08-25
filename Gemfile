@@ -10,6 +10,12 @@ gem 'devise', '1.2.1'
 gem 'cancan', '1.6.1'
 gem 'transitions', '0.0.9', :require => ["transitions", "active_record/transitions"]
 gem 'paperclip'
+
+#style with haml and scss...please
+gem 'haml-rails'
+gem 'sass'
+gem "compass", ">= 0.11.5"
+
 gem 'fastercsv', '1.5.3', :platforms => :ruby_18
 # (using standard csv lib if ruby version is 1.9)
 
@@ -18,6 +24,9 @@ gem 'fastercsv', '1.5.3', :platforms => :ruby_18
 
 # Deploy with Capistrano
 # gem 'capistrano'
+
+# To use debugger
+#  gem 'ruby-debug19'
 
 # Bundle the extra gems:
 # gem 'bj'
@@ -34,8 +43,6 @@ gem 'fastercsv', '1.5.3', :platforms => :ruby_18
 
 group :development, :test do
   # To use debugger
-  gem 'ruby-debug19'
-
   gem 'factory_girl_rails'
   gem 'jasmine'
 end

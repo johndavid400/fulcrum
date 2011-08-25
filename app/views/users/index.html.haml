@@ -1,0 +1,37 @@
+- content_for :title_bar do
+  = render :partial => 'projects/nav', :locals => {:project => @project}
+%h2 Project members
+
+%table
+  %thead
+    %tr
+      %th
+        User
+      %th
+        Remove
+  %tbody
+  - @users.each do |user|
+    %tr
+      %td
+        = user
+      %td
+        = link_to 'Remove', project_user_path(@project, user),                            |
+          :confirm => "Are you sure you want to remove #{user.email} from this project?", |
+          :method => :delete                                                              |
+%h2 Add a new member
+= form_for project_users_path(@project, @user) do |f|
+  - fields_for :user do |u|
+    %p
+      = u.label :email
+      %br/
+      = u.text_field :email
+    %p
+      = u.label :name
+      %br/
+      = u.text_field :name
+    %p
+      = u.label :initials
+      %br/
+      = u.text_field :initials
+    %p
+      = u.submit 'Add user'
