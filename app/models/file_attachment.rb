@@ -9,8 +9,8 @@ class FileAttachment < ActiveRecord::Base
       :storage => :s3,
       :bucket => 'mybucket',
       :s3_credentials => {
-      :access_key_id => ENV['AKIAJZLQXQ45BLUXMJMA'],
-      :secret_access_key => ENV['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']
+      :access_key_id => ENV['S3_KEY'],
+      :secret_access_key => ENV['S3_SECRET']
     }
-
   end
+end
