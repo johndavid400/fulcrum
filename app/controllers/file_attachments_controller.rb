@@ -14,6 +14,7 @@ class FileAttachmentsController < ApplicationController
 
   public
   def index
+    @project = @story.project
     @file_attachments = @story.file_attachments
   end
 
@@ -25,4 +26,17 @@ class FileAttachmentsController < ApplicationController
     end
     redirect_to @story.project
   end
+
+  def destroy
+    session[:return_to] ||= request.referer
+    @file_attachment = FileAttachment.find(params[:id])
+    debugger
+    if @file_attachment.destroy
+      flash[:notice] = "Book deleted"
+    else
+      flash[:error] = "Delete error"
+    end
+    redirect_to session[:return_to]
+  end
+
 end
