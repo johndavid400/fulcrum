@@ -32,9 +32,9 @@ class FileAttachmentsController < ApplicationController
     @file_attachment = FileAttachment.find(params[:id])
     debugger
     if @file_attachment.destroy
-      flash[:notice] = "Book deleted"
+      flash[:notice] = "File deleted"
     else
-      flash[:error] = "Delete error"
+      flash[:error] = "Error while deleting"
     end
     redirect_to session[:return_to]
   end
