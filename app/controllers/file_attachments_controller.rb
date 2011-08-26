@@ -30,7 +30,6 @@ class FileAttachmentsController < ApplicationController
   def destroy
     session[:return_to] ||= request.referer
     @file_attachment = FileAttachment.find(params[:id])
-    debugger
     if @file_attachment.destroy
       flash[:notice] = "File deleted"
     else
