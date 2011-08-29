@@ -4,5 +4,4 @@ log/*.log
 tmp/**/*
 .rvmrc
 public/system/attachments/*
-config/private/*
 
