@@ -4,23 +4,21 @@
 
 <table>
   <tr>
-    <th>Filename</th>
-    <th>Size (kB)</th>
+    <th>File</th>
+    <th>Size</th>
     <th>Type</th>
     <th>Created at</th>
     <th>Story ID</th>
-    <th>Download</th>
     <th>Remove</th>
   </tr>
 
 <% @file_attachments.each do |file_attachment| %>
   <tr>
-    <td><%= image_tag file_attachment.attachment_file_name %></td>
+    <td><%= link_to file_attachment.attachment_file_name, file_attachment.attachment.url %></td>
     <td><%= image_tag file_attachment.attachment_file_size.to_s %></td>
     <td><%= image_tag file_attachment.attachment_content_type %></td>
     <td><%= image_tag file_attachment.attachment_updated_at.to_s %></td>
     <td><%= image_tag file_attachment.story_id.to_s %></td>
-    <td><%= link_to 'Download', file_attachment.attachment.url %></td>
     <td><%= link_to 'Destroy', file_attachment, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
