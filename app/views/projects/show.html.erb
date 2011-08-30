@@ -96,23 +96,24 @@ $(function() {
 <% content_for :title_bar do %>
   <%= render :partial => 'projects/nav', :locals => {:project => @project} %>
   | <a id="add_story" href="#">Add story</a>
+  <%= render :partial => 'projects/show_hide' %>
 <% end %>
 
 <table class="stories" width="100%">
   <thead>
     <tr>
-      <th>In Progress</th>
-      <th>Done</th>
-      <th>Backlog</th>
-      <th>Chilly Bin</th>
+      <th class="hide_progress">In Progress</th>
+      <th class="hide_done">Done</th>
+      <th class="hide_backlog">Backlog</th>
+      <th class="hide_chilly">Chilly Bin</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="width: 25%"><div id="in_progress" class="storycolumn"></div></td>
-      <td style="width: 25%"><div id="done" class="storycolumn sortable"></div></td>
-      <td style="width: 25%"><div id="backlog" class="storycolumn sortable"></div></td>
-      <td style="width: 25%"><div id="chilly_bin" class="storycolumn sortable"></div></td>
+      <td class="hide_progress" style="width: 25%"><div id="in_progress" class="storycolumn"></div></td>
+      <td class="hide_done" style="width: 25%"><div id="done" class="storycolumn sortable"></div></td>
+      <td class="hide_backlog" style="width: 25%"><div id="backlog" class="storycolumn sortable"></div></td>
+      <td class="hide_chilly" style="width: 25%"><div id="chilly_bin" class="storycolumn sortable"></div></td>
     </tr>
   </tbody>
 </table>
